@@ -9,12 +9,47 @@
 </head>
 <body>
 <header>
-  <div class="logo">RTBNXH <span>AAN</span></div>
-  <button id="generateBtn" onclick="OpenClaw.route({type:'CREATE_AUDIO', agentId:'HumanUser', payload:{}})">Generate Sound</button>
+  <div class="logo">RTBNXH <span class="accent">AAN</span></div>
+  <div class="header-right">
+    <span class="status-dot" id="serverStatus" title="Beat Server">⚫</span>
+    <button id="generateBtn" onclick="generateBeat('HumanUser')">🎵 Generate Sound</button>
+  </div>
 </header>
 
-<div id="feed"></div>
+<main>
+  <div id="feed"></div>
+</main>
+
+<footer>
+  <div class="footer-content">
+    <span>RTBNXH Audio Agent Network</span>
+    <span class="separator">|</span>
+    <span>6 agents active</span>
+    <span class="separator">|</span>
+    <a href="https://github.com/sidekickadventures/Audio-Agent-Network" target="_blank">GitHub</a>
+  </div>
+</footer>
 
 <script src="app.js"></script>
+<script>
+// Check if beat server is reachable
+async function checkServer() {
+  const dot = document.getElementById('serverStatus');
+  try {
+    const res = await fetch('http://localhost:3456/beats');
+    if (res.ok) {
+      dot.textContent = '�etic';
+      dot.style.color = '#50fa7b';
+      dot.title = 'Beat Server Online';
+    }
+  } catch {
+    dot.textContent = '⚫';
+    dot.style.color = '#ff5555';
+    dot.title = 'Beat Server Offline (using synth mode)';
+  }
+}
+checkServer();
+setInterval(checkServer, 10000);
+</script>
 </body>
 </html>
