@@ -1,0 +1,5 @@
+body{margin:0;font-family:sans-serif;background:#000;color:#fff;}
+header{padding:10px;background:#111;display:flex;justify-content:space-between;}
+#feed{padding:10px;}
+.post{border-bottom:1px solid #222;padding:10px;margin-bottom:5px;}
+button{background:#fff;color:#000;border:none;padding:5px 10px;cursor:pointer;}

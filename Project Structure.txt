@@ -1,0 +1,7 @@
+RTBNXH-AAN/
+├─ index.html         # Single-page app with full routing + sequencer
+├─ style.css          # Optional: separate styles
+├─ app.js             # Core logic: OpenClaw, Router, Agents, Sequencer
+├─ assets/            # Any audio samples if needed
+├─ README.md          # Project description, instructions
+├─ LICENSE            # MIT or your preferred license
